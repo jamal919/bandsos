@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/bandsos/static/css/main.4a4137e4.chunk.css",
-    "main.js": "/bandsos/static/js/main.dcd4505e.chunk.js",
-    "main.js.map": "/bandsos/static/js/main.dcd4505e.chunk.js.map",
-    "runtime-main.js": "/bandsos/static/js/runtime-main.9b73d1d1.js",
-    "runtime-main.js.map": "/bandsos/static/js/runtime-main.9b73d1d1.js.map",
+    "main.css": "/bandsos/static/css/main.24650e52.chunk.css",
+    "main.js": "/bandsos/static/js/main.ed61be5c.chunk.js",
+    "main.js.map": "/bandsos/static/js/main.ed61be5c.chunk.js.map",
+    "runtime-main.js": "/bandsos/static/js/runtime-main.9c114f23.js",
+    "runtime-main.js.map": "/bandsos/static/js/runtime-main.9c114f23.js.map",
     "static/css/2.da98c186.chunk.css": "/bandsos/static/css/2.da98c186.chunk.css",
-    "static/js/2.0d7e9519.chunk.js": "/bandsos/static/js/2.0d7e9519.chunk.js",
-    "static/js/2.0d7e9519.chunk.js.map": "/bandsos/static/js/2.0d7e9519.chunk.js.map",
-    "static/js/3.2fe39431.chunk.js": "/bandsos/static/js/3.2fe39431.chunk.js",
-    "static/js/3.2fe39431.chunk.js.map": "/bandsos/static/js/3.2fe39431.chunk.js.map",
+    "static/js/2.476c213a.chunk.js": "/bandsos/static/js/2.476c213a.chunk.js",
+    "static/js/2.476c213a.chunk.js.map": "/bandsos/static/js/2.476c213a.chunk.js.map",
+    "static/js/3.bcee1b40.chunk.js": "/bandsos/static/js/3.bcee1b40.chunk.js",
+    "static/js/3.bcee1b40.chunk.js.map": "/bandsos/static/js/3.bcee1b40.chunk.js.map",
     "index.html": "/bandsos/index.html",
     "static/css/2.da98c186.chunk.css.map": "/bandsos/static/css/2.da98c186.chunk.css.map",
-    "static/css/main.4a4137e4.chunk.css.map": "/bandsos/static/css/main.4a4137e4.chunk.css.map",
-    "static/js/2.0d7e9519.chunk.js.LICENSE.txt": "/bandsos/static/js/2.0d7e9519.chunk.js.LICENSE.txt",
+    "static/css/main.24650e52.chunk.css.map": "/bandsos/static/css/main.24650e52.chunk.css.map",
+    "static/js/2.476c213a.chunk.js.LICENSE.txt": "/bandsos/static/js/2.476c213a.chunk.js.LICENSE.txt",
     "static/media/level.610b15a1.svg": "/bandsos/static/media/level.610b15a1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9b73d1d1.js",
+    "static/js/runtime-main.9c114f23.js",
     "static/css/2.da98c186.chunk.css",
-    "static/js/2.0d7e9519.chunk.js",
-    "static/css/main.4a4137e4.chunk.css",
-    "static/js/main.dcd4505e.chunk.js"
+    "static/js/2.476c213a.chunk.js",
+    "static/css/main.24650e52.chunk.css",
+    "static/js/main.ed61be5c.chunk.js"
   ]
 }
