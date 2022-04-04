@@ -13,7 +13,9 @@ import { icon, latLng, latLngBounds } from "leaflet";
 import { Navigation } from "./Navigation";
 
 import marker_level from "../images/level.svg";
+import marker_tidegauge from "../images/oceantide.svg";
 import bwdb from "../layers/stations/bwdb.json";
+import biwta from "../layers/stations/biwta.json";
 
 const position = [24, 90]; // Bangladesh
 
@@ -23,6 +25,11 @@ var southWest = latLng(11, 50),
 
 const icon_level = icon({
   iconUrl: marker_level,
+  iconSize: [24, 24],
+});
+
+const icon_tidegauge = icon({
+  iconUrl: marker_tidegauge,
   iconSize: [24, 24],
 });
 
@@ -71,14 +78,38 @@ function Map(props) {
                 icon={icon_level}
               >
                 <Popup>
-                  Station Name: {station.properties.location} <br />
-                  Longitude: {station.properties.x} <br />
-                  Latitude: {station.properties.y} <br />
+                  Station ID: {station.properties.ID} <br />
+                  Station Name: {station.properties.Name} <br />
+                  Longitude: {station.properties.Lon} <br />
+                  Latitude: {station.properties.Lat} <br />
                 </Popup>
               </Marker>
             ))}
           </LayerGroup>
         </LayersControl.Overlay>
+
+        <LayersControl.Overlay checked name="BIWTA">
+          <LayerGroup>
+            {biwta.features.map((station) => (
+              <Marker
+                position={[
+                  station.geometry.coordinates[1],
+                  station.geometry.coordinates[0],
+                ]}
+                icon={icon_tidegauge}
+              >
+                <Popup>
+                  Station ID: {station.properties.ID} <br />
+                  Station Name: {station.properties.Name} <br />
+                  Longitude: {station.properties.Lon} <br />
+                  Latitude: {station.properties.Lat} <br />
+                  Organization: {station.properties.Organization}
+                </Popup>
+              </Marker>
+            ))}
+          </LayerGroup>
+        </LayersControl.Overlay>
+
       </LayersControl>
 
       <ScaleControl
