@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bandsos/static/css/main.78d0ac49.chunk.css",
-    "main.js": "/bandsos/static/js/main.f98a037d.chunk.js",
-    "main.js.map": "/bandsos/static/js/main.f98a037d.chunk.js.map",
+    "main.js": "/bandsos/static/js/main.a64d20e9.chunk.js",
+    "main.js.map": "/bandsos/static/js/main.a64d20e9.chunk.js.map",
     "runtime-main.js": "/bandsos/static/js/runtime-main.45fab2a5.js",
     "runtime-main.js.map": "/bandsos/static/js/runtime-main.45fab2a5.js.map",
     "static/css/2.057c52a3.chunk.css": "/bandsos/static/css/2.057c52a3.chunk.css",
@@ -14,7 +14,6 @@
     "static/css/2.057c52a3.chunk.css.map": "/bandsos/static/css/2.057c52a3.chunk.css.map",
     "static/css/main.78d0ac49.chunk.css.map": "/bandsos/static/css/main.78d0ac49.chunk.css.map",
     "static/js/2.e806e6f9.chunk.js.LICENSE.txt": "/bandsos/static/js/2.e806e6f9.chunk.js.LICENSE.txt",
-    "static/media/hironpoint.f9ae7144.csv": "/bandsos/static/media/hironpoint.f9ae7144.csv",
     "static/media/level.610b15a1.svg": "/bandsos/static/media/level.610b15a1.svg"
   },
   "entrypoints": [
@@ -22,6 +21,6 @@
     "static/css/2.057c52a3.chunk.css",
     "static/js/2.e806e6f9.chunk.js",
     "static/css/main.78d0ac49.chunk.css",
-    "static/js/main.f98a037d.chunk.js"
+    "static/js/main.a64d20e9.chunk.js"
   ]
 }
