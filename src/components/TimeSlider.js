@@ -4,17 +4,16 @@ import { Container } from "react-bootstrap";
 
 import "./TimeSlider.css";
 
-const TimeSlider = function ({properties, steps, setForecastLayer}) {
-    
+const TimeSlider = function ({forecast, setTimestep}) {
+    console.log("from timeslider", forecast);
+    const steps = forecast.forecasts.elev.layers[0].timestamps; 
     const min = 0;
-    const max = min + properties.timesteps - 1;
-
-    const initindex = steps.findIndex( (step) => step.time === properties.cycletime )
+    const max = min + steps.length - 1;
+    const initindex = steps.findIndex( (step) => step.time === forecast.date );
+    const starttime = steps[0].time;
+    const endtime = steps[max].time;
 
     const [index, onChange] = useState(initindex);
-
-    console.log('From time slider, checking time in step', steps[index]);
-    console.log('From timeslider', properties, steps, index, initindex);
     
 
     // To create a bubble and move with the slider
@@ -30,7 +29,7 @@ const TimeSlider = function ({properties, steps, setForecastLayer}) {
     return (
         <Container>
             <div className="timeslider-parent">
-            <span id='starttime'>{properties.starttime}</span>
+            <span id='starttime'>{starttime}</span>
             <div id="timeslider">
                 <input 
                     type="range" 
@@ -41,11 +40,11 @@ const TimeSlider = function ({properties, steps, setForecastLayer}) {
                     value={index} 
                     onChange={ ({target: {value: step} }) => {
                         onChange(step); 
-                        setForecastLayer({available:true, folder:steps[step].folder, step:step});
+                        setTimestep({folder:steps[step].folder});
                     }}/>
                 <div id="buble">Currently viewing: <b>{steps[index].time}</b></div>
             </div>
-            <span id='endtime'>{properties.endtime}</span>
+            <span id='endtime'>{endtime}</span>
             </div>
         </Container>
     );

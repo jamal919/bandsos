@@ -7,18 +7,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function BasicNavbar({sitename, navbar, forecast, setForecast, cycles}) {
-    console.log('From Navbar', {sitename, navbar, forecast, setForecast, cycles});
 
     const handleChange = (e) => {
         const newstate = {...forecast};
         switch (e.target.name) {
             case "forecastdate":
                 newstate.date = e.target.value;
-                newstate.folder = `/${e.target.value.replaceAll("-","")}${forecast.cycle}`;
+                newstate.folder = `${e.target.value.replaceAll("-","")}${forecast.cycle}`;
                 break;
             case "forecastcycle":
                 newstate.cycle = e.target.value;
-                newstate.folder = `/${forecast.date.replaceAll("-","")}${e.target.value}`;
+                newstate.folder = `${forecast.date.replaceAll("-","")}${e.target.value}`;
                 break;
             default:
                 break;

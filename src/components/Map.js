@@ -14,37 +14,42 @@ import { icon, latLng, latLngBounds } from "leaflet";
 import DyGraph from "./Graph";
 import Colorbar from './Colorbar';
 
-import wlfile from "../assets/timeseries/hironpoint.csv";
-
 import marker_level from "../assets/icons/level.svg";
-
 const icon_level = icon({
   iconUrl: marker_level,
-  iconSize: [24, 24],
+  iconSize: [24, 24]
 });
 
 // Main component
-function Map(props) {
+function Map({dataurl, config, forecast, timestep}) {
+
+  console.log("From Map container", config, forecast, timestep);
+
+  // const ref = useRef(null);
+  // const waterLevelsUrl = props.forecast.url + '/' + props.forecast.folder + '/' + props.forecast.branch + '/waterlevels/'
+  // const waterLevelsUrl = props.forecast.url + '/' + props.forecast.folder + '/forecasts/elev/tiles'
+  // const stationUrl = props.forecast.url + '/' + props.forecast.folder + '/forecasts/elev/stations'
+  // const layerUrl = waterLevelsUrl + props.layer.folder + "/{z}/{x}/{y}.png";
+  const tileurl = dataurl + '/' + forecast.cycle + '/' + forecast.forecasts.elev.src + '/' + forecast.forecasts.elev.layers[0].type + '/' + timestep.folder + "/{z}/{x}/{y}.png";
+
+  console.log(tileurl);
 
   const ref = useRef(null);
-
-  const layerurl = props.forecast.url + '/' + props.forecast.folder + '/' + props.forecast.branch + '/' + props.layer.folder + "/{z}/{x}/{y}.png";
-
   useEffect(() => {
     if (ref.current) {
-      ref.current.setUrl(layerurl);
+      ref.current.setUrl(tileurl);
     }
-  }, [layerurl]);
+  }, [tileurl]);
 
   return (
     <MapContainer
-      key={props.forecast.date + props.forecast.cycle}
-      center={props.mapcenter}
-      bounds={latLngBounds(latLng(props.bounds.south, props.bounds.west), latLng(props.bounds.north, props.bounds.east))}
-      zoom={props.zoom}
+      // key={props.forecast.date + props.forecast.cycle}
+      center={config.center}
+      bounds={latLngBounds(latLng(config.bounds.south, config.bounds.west), latLng(config.bounds.north, config.bounds.east))}
+      zoom={config.zoom}
       scrollWheelZoom={true}
-      minZoom={props.minzoom}
-      maxZoom={props.maxzoom}
+      minZoom={config.minzoom}
+      maxZoom={config.maxzoom}
       style={{ width: "100vw", height: "100%"}}
     >
       <LayersControl position="topright">
@@ -63,52 +68,43 @@ function Map(props) {
             zIndex={1}
           />
         </LayersControl.BaseLayer>
-
-        <LayersControl.Overlay checked name="Station Forecast">
-          <LayerGroup>
-            {props.stations.map((station) => (
-              <Marker
-                key={station.ID}
-                position={[
-                  station.Lat,
-                  station.Lon,
-                ]}
-                icon={icon_level}
-              >
-                <Popup maxWidth={"80%"}>
-                  <Tooltip>
-                  Station ID: {station.ID} <br />
-                  Station Name: {station.Name} <br />
-                  Longitude: {station.Lon} <br />
-                  Latitude: {station.Lat} <br />
-                  </Tooltip>
-                  
-                  <DyGraph
-                    url={wlfile}
-                    title={station.Name}
-                    />
-
-                </Popup>
-              </Marker>
-            ))}
-          </LayerGroup>
-        </LayersControl.Overlay>
-
-      </LayersControl>https://medium.com/@benlmsc/stop-using-console-log-d281a900dedb
+      </LayersControl>
 
       {
-        props.layer.available &&
-        <>
-          <TileLayer
-            url={layerurl}
-            tms={true}
-            opacity={0.9}
-            zIndex={10}
-            ref={ref}
-          />
-          <Colorbar position="bottomright" colorbar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQdVtc7ruP8W6UQ28UbYUwdU9SWbz4tD6ZEeGu68mk5L6R2T4sK4z-8tp1WS8Z0oSKEw&usqp=CAU"></Colorbar>
-        </>
+        forecast.forecasts.elev.layers[1].stations.map( (station) => (
+          <Marker
+            key={station.id}
+            position={[station.lat, station.lon]}
+            icon={icon_level}
+          >
+            <Popup maxWidth={"80%"}>
+              <Tooltip>
+                Station ID: {station.id} <br />
+                Station Name: {station.name} <br />
+                Longitude: {station.lon} <br />
+                Latitude: {station.lat} <br />
+              </Tooltip>
+              <DyGraph
+              url={dataurl + '/' + forecast.cycle + '/' + forecast.forecasts.elev.src + '/' + forecast.forecasts.elev.layers[1].type + '/' + station.id + '.csv'}
+              title={station.name + ' - ' + station.org}
+              />
+            </Popup>
+          </Marker>  
+        ))
       }
+      
+      <TileLayer
+        url={tileurl}
+        tms={true}
+        opacity={1}
+        zIndex={10}
+        ref={ref}
+      ></TileLayer>
+
+      <Colorbar 
+        position="bottomright" 
+        colorbar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQdVtc7ruP8W6UQ28UbYUwdU9SWbz4tD6ZEeGu68mk5L6R2T4sK4z-8tp1WS8Z0oSKEw&usqp=CAU">
+      </Colorbar>
       
       <ScaleControl
         position="bottomleft"

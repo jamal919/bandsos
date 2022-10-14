@@ -3,15 +3,16 @@ import status from "./status.json";
 
 let config = {
     "sitename":"BandSOS",
+    "dataurl":"https://jamalkhan.me",
     "map":{
         "mapcenter":[22, 90], // [lat, long], Bangladesh
         "bounds":{
-            "east":50,
-            "west":120,
-            "south":11,
-            "north":28
+            "east":85,
+            "west":95,
+            "south":20,
+            "north":24
         },
-        "zoom":7,
+        "zoom":9,
         "minzoom":6,
         "maxzoom":10
     },

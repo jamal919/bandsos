@@ -47,7 +47,7 @@ Control.Navigation = Control.extend({
     return link;
   },
   _goHome: function () {
-    console.log("Hello");
+    // pass
   },
 });
 

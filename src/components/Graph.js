@@ -13,8 +13,6 @@ function DyGraph(props) {
   console.log(props);
 
   useEffect(() => {
-    console.log(props.url);
-    console.log(props.title);
     new Dygraph(
       graphRef.current,
       props.url,
@@ -23,7 +21,7 @@ function DyGraph(props) {
         ylabel: "Water level (m)",
         xlabel: "Datetime",
         gridLineWidth: "0.1",
-        valueRange: [0, null],
+        // valueRange: [0, null],
       }
     );
   });
