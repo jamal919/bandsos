@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bandsos/static/css/main.78d0ac49.chunk.css",
-    "main.js": "/bandsos/static/js/main.80cee597.chunk.js",
-    "main.js.map": "/bandsos/static/js/main.80cee597.chunk.js.map",
+    "main.js": "/bandsos/static/js/main.ae67eb68.chunk.js",
+    "main.js.map": "/bandsos/static/js/main.ae67eb68.chunk.js.map",
     "runtime-main.js": "/bandsos/static/js/runtime-main.eec3707a.js",
     "runtime-main.js.map": "/bandsos/static/js/runtime-main.eec3707a.js.map",
     "static/css/2.057c52a3.chunk.css": "/bandsos/static/css/2.057c52a3.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.057c52a3.chunk.css",
     "static/js/2.728d20fc.chunk.js",
     "static/css/main.78d0ac49.chunk.css",
-    "static/js/main.80cee597.chunk.js"
+    "static/js/main.ae67eb68.chunk.js"
   ]
 }
